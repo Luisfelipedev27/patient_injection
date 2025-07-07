@@ -1,0 +1,38 @@
+.PHONY: up down build console c sh rspec lint routes install setup
+
+up:
+	docker compose up
+
+down:
+	docker compose down
+
+build:
+	docker compose build
+
+console:
+	docker compose run --rm web rails console
+
+c:
+	docker compose run --rm web rails console
+
+sh:
+	docker compose run --rm web bash
+
+rspec:
+	docker compose run --rm web rspec
+
+lint:
+	docker compose run --rm web rubocop
+
+routes:
+	docker compose run --rm web rails routes
+
+install:
+	docker compose run --rm web bundle install
+
+# SETUP
+
+setup:
+	docker compose build
+	docker compose up -d
+	docker compose exec web rails db:create db:migrate db:seed
