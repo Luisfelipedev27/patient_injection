@@ -54,15 +54,6 @@ make console
 
 # Access bash shell
 make sh
-
-# Run RSpec tests
-make rspec
-
-# Run code linting
-make lint
-
-# Generate Swagger documentation
-make swagger
 ```
 
 ##  Database Schema
