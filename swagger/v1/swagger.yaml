@@ -1,0 +1,181 @@
+---
+openapi: 3.0.1
+info:
+  title: Patient Injection API V1
+  version: v1
+  description: API for managing patient injections and calculating adherence scores
+paths:
+  "/api/v1/adherence":
+    get:
+      summary: Get adherence score
+      tags:
+      - Adherence
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: Adherence score retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  patient_id:
+                    type: integer
+                  adherence_score:
+                    type: integer
+                  treatment_schedule_days:
+                    type: integer
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  "/api/v1/injections":
+    get:
+      summary: List patient injections
+      tags:
+      - Injections
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: Injections retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  injections:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        dose:
+                          type: number
+                        lot_number:
+                          type: string
+                        drug_name:
+                          type: string
+                        injected_at:
+                          type: string
+                          format: date
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    post:
+      summary: Create injection
+      tags:
+      - Injections
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '201':
+          description: Injection created
+        '422':
+          description: Validation failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                injection:
+                  type: object
+                  properties:
+                    dose:
+                      type: number
+                      example: 2.5
+                    lot_number:
+                      type: string
+                      example: ABC123
+                    drug_name:
+                      type: string
+                      example: Factor VIII
+                    injected_at:
+                      type: string
+                      format: date
+                      example: '2024-01-01'
+                  required:
+                  - dose
+                  - lot_number
+                  - drug_name
+                  - injected_at
+  "/api/v1/patients":
+    post:
+      summary: Create a new patient
+      tags:
+      - Patients
+      parameters: []
+      responses:
+        '201':
+          description: Patient created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  api_key:
+                    type: string
+                  treatment_schedule_days:
+                    type: integer
+        '422':
+          description: Validation failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                patient:
+                  type: object
+                  properties:
+                    treatment_schedule_days:
+                      type: integer
+                      example: 3
+                  required:
+                  - treatment_schedule_days
+              required:
+              - patient
+servers:
+- url: http://localhost:3000
+  description: Development server
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
