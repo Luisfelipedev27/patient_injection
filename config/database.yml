@@ -47,6 +47,10 @@ test:
   host: <%= ENV.fetch("DATABASE_HOST", "localhost") %>
   port: 5432
 
+  # Configurações específicas para testes
+  pool: 5
+  timeout: 5000
+
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.

@@ -10,6 +10,6 @@ class CreateInjections < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :injections, [:patient_id, :injected_at]
+    add_index :injections, [ :patient_id, :injected_at ]
   end
 end
