@@ -29,6 +29,9 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
+# Rubocop for code style
+gem 'rubocop', '~> 1.77'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -44,4 +47,16 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # See https://github.com/rspec/rspec-rails
+  gem "rspec-rails"
+
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem "shoulda-matchers"
+
+  # https://github.com/thoughtbot/factory_bot_rails
+  gem "factory_bot_rails"
+
+  # https://github.com/faker-ruby/faker
+  gem "faker"
 end
