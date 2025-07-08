@@ -9,6 +9,6 @@ class Patient < ApplicationRecord
   private
 
   def generate_api_key
-    self.api_key = SecureRandom.hex(16)
+    self.api_key = SecureRandom.hex(16) if api_key.blank?
   end
 end
