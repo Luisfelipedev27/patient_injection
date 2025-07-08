@@ -40,7 +40,7 @@ module Api::V1
       on_time_injections = expected_dates.count { |date| actual_dates.include?(date) }
       total_expected = expected_dates.size
 
-      ((on_time_injections.to_f / total_expected) * 100).round(1)
+      ((on_time_injections.to_f / total_expected) * 100).round
     end
   end
 end
