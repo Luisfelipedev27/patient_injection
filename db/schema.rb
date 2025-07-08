@@ -10,8 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_07_232549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "injections", force: :cascade do |t|
+    t.decimal "dose", precision: 8, scale: 2, null: false
+    t.string "lot_number", limit: 6, null: false
+    t.string "drug_name", null: false
+    t.date "injected_at", null: false
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id", "injected_at"], name: "index_injections_on_patient_id_and_injected_at"
+    t.index ["patient_id"], name: "index_injections_on_patient_id"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "api_key", null: false
+    t.integer "treatment_schedule_days", default: 3, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["api_key"], name: "index_patients_on_api_key", unique: true
+  end
+
+  add_foreign_key "injections", "patients"
 end
