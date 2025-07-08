@@ -124,5 +124,65 @@ make rspec
 make lint
 ```
 
+## Implemented Features & Bonus Objectives
+
+### Core Features
+
+#### **Patient Management**
+- [x] **Patient Registration**: Create patients with unique API keys for authentication
+- [x] **Treatment Schedule Configuration**: Configurable treatment schedule days (default: 3 days)
+- [x] **Unique API Key Generation**: Secure patient identification system
+- [x] **Data Validation**: Comprehensive input validation for patient data
+
+#### **Injection Logging**
+- [x] **Injection Recording**: Log medication injections with detailed information
+- [x] **Dose Tracking**: Record medication doses with decimal precision
+- [x] **Batch Tracking**: Lot number validation (maximum 6 characters)
+- [x] **Drug Name Management**: Track different medication types
+- [x] **Date Tracking**: Record injection dates with proper validation
+- [x] **Patient Association**: Link injections to authenticated patients
+
+#### **Adherence Calculation**
+- [x] **Adherence Percentage**: Calculate treatment compliance percentage
+- [x] **Expected vs Actual**: Compare expected injections based on schedule
+- [x] **Treatment Timeline**: Track treatment duration and progress
+
+### API Features
+
+#### **RESTful API Design**
+- [x] **Clean Endpoints**: Well-structured API with consistent patterns
+- [x] **JSON Responses**: Structured data format with proper serialization
+- [x] **HTTP Status Codes**: Appropriate status codes for different scenarios
+- [x] **Bearer Token Authentication**: Secure API key-based authentication
+
+#### **Authentication & Security**
+- [x] **API Key Authentication**: Unique patient identification system
+- [x] **Bearer Token Implementation**: Standard Authorization header format
+- [x] **Data Validation**: Server-side validation for all inputs
+
+### Documentation & Testing
+
+#### **API Documentation (Swagger/OpenAPI)**
+- [x] **Interactive Documentation**: Swagger UI available at `/api-docs`
+- [x] **Complete Endpoint Coverage**: All endpoints documented with examples
+- [x] **Request/Response Examples**: Detailed examples for all operations
+- [x] **Authentication Documentation**: Clear instructions for API key usage
+
+#### **Comprehensive Testing Suite**
+- [x] **RSpec Test Framework**: Complete test coverage with RSpec
+- [x] **Factory Bot Integration**: Test data factories for consistent testing
+- [x] **Request Specs**: API endpoint testing with authentication
+- [x] **Authentication Tests**: Security and authorization testing
+
+#### **Code Quality & CI/CD**
+- [x] **RuboCop Integration**: Automated code style enforcement
+- [x] **GitHub Actions CI**: Continuous integration pipeline
+- [x] **Automated Testing**: Tests run on every commit and pull request
+- [x] **Linting Pipeline**: Code style checks in CI/CD
+- [x] **Make Commands**: Simplified development workflow
+- [x] **Docker Integration**: Containerized development environment
+
 ---
-** Rails 8.0 and Docker **
+**Built with Rails 8.0, Docker, and modern development practices, thank you very much for the opportunity**
+
+Luis Felipe
