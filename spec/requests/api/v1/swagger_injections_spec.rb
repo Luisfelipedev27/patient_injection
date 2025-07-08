@@ -8,7 +8,7 @@ RSpec.describe 'api/v1/injections', type: :request do
     get('List patient injections') do
       tags 'Injections'
       produces 'application/json'
-      security [{ Bearer: [] }]
+      security [ { Bearer: [] } ]
 
       response(200, 'Injections retrieved') do
         schema type: :object,
@@ -49,7 +49,7 @@ RSpec.describe 'api/v1/injections', type: :request do
       tags 'Injections'
       consumes 'application/json'
       produces 'application/json'
-      security [{ Bearer: [] }]
+      security [ { Bearer: [] } ]
 
       parameter name: :injection, in: :body, schema: {
         type: :object,
@@ -62,7 +62,7 @@ RSpec.describe 'api/v1/injections', type: :request do
               drug_name: { type: :string, example: 'Factor VIII' },
               injected_at: { type: :string, format: :date, example: '2024-01-01' }
             },
-            required: ['dose', 'lot_number', 'drug_name', 'injected_at']
+            required: [ 'dose', 'lot_number', 'drug_name', 'injected_at' ]
           }
         }
       }

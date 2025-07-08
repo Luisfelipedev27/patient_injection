@@ -15,10 +15,10 @@ RSpec.describe 'api/v1/patients', type: :request do
             properties: {
               treatment_schedule_days: { type: :integer, example: 3 }
             },
-            required: ['treatment_schedule_days']
+            required: [ 'treatment_schedule_days' ]
           }
         },
-        required: ['patient']
+        required: [ 'patient' ]
       }
 
       response(201, 'Patient created successfully') do

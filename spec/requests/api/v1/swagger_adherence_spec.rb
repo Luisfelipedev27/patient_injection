@@ -8,7 +8,7 @@ RSpec.describe 'api/v1/adherence', type: :request do
     get('Get adherence score') do
       tags 'Adherence'
       produces 'application/json'
-      security [{ Bearer: [] }]
+      security [ { Bearer: [] } ]
 
       response(200, 'Adherence score retrieved') do
         schema type: :object,
