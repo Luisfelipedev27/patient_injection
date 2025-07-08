@@ -1,4 +1,4 @@
-.PHONY: up down build console c sh rspec lint routes install setup
+.PHONY: up down build console c sh rspec lint routes install setup swagger
 
 up:
 	docker compose up
@@ -12,8 +12,6 @@ build:
 console:
 	docker compose run --rm web rails console
 
-c:
-	docker compose run --rm web rails console
 
 sh:
 	docker compose run --rm web bash
@@ -27,11 +25,11 @@ rspec:
 lint:
 	docker compose run --rm web rubocop
 
-routes:
-	docker compose run --rm web rails routes
-
 install:
 	docker compose run --rm web bundle install
+
+swagger:
+	docker compose run --rm web rails rswag:specs:swaggerize
 
 # SETUP
 
