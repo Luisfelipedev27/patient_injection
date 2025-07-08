@@ -19,7 +19,10 @@ sh:
 	docker compose run --rm web bash
 
 rspec:
-	docker compose run --rm web rspec
+	docker compose run --rm web rspec $(filter-out $@,$(MAKECMDGOALS))
+
+%:
+	@:
 
 lint:
 	docker compose run --rm web rubocop
