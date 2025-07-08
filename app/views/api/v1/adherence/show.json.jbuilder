@@ -1,0 +1,3 @@
+json.patient_id current_patient.id
+json.adherence_score @adherence_score
+json.treatment_schedule_days current_patient.treatment_schedule_days
