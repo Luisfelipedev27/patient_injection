@@ -97,7 +97,6 @@ Authorization: Bearer <patient_api_key>
 | POST | `/api/v1/injections` | Log new injection |
 | GET | `/api/v1/injections` | List patient's injections |
 | GET | `/api/v1/adherence` | Get adherence calculation |
-| GET | `/up` | Health check |
 
 ## Usage Examples
 
