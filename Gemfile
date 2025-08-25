@@ -30,7 +30,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # Rubocop for code style
-gem "rubocop", "~> 1.77"
+gem "rubocop", "~> 1.80"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
